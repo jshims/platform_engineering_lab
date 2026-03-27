@@ -1,0 +1,29 @@
+nginx:
+  replicaCount: 2
+  image:
+    repository: nginx
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  service:
+    type: LoadBalancer
+    port: 80
+  resources: {}
+
+redis:
+  replicaCount: 1
+  image:
+    repository: redis
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 6379
+  resources: {}
+
+config:
+  logLevel: "debug"
+  appEnv: "dev"
+
+secret:
+  redisPassword: "cmVkaXMxMjM="
+  apiKey: "bXlzZWNyZXRrZXkxMjM="

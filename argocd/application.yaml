@@ -9,7 +9,10 @@ spec:
   source:
     repoURL: https://github.com/jshims/platform_engineering_lab.git
     targetRevision: dev
-    path: k8s
+    path: platform-lab
+    helm:
+      valueFiles:
+        - values.yaml
 
   destination:
     server: https://kubernetes.default.svc
