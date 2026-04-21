@@ -33,3 +33,9 @@ module "eks" {
   vpc_id             = module.vpc.vpc_id
   private_subnet_ids = module.vpc.private_subnet_ids
 }
+
+module "cicd" {
+  source       = "../../modules/cicd"
+  project_name = var.project_name
+  github_repo  = "jshims/platform_engineering_lab"
+}
