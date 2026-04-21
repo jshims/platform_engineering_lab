@@ -1,14 +1,13 @@
 nginx:
   replicaCount: 3
   image:
-    repository: nginx
-    tag: "latest"
+    repository: 879321533352.dkr.ecr.ap-northeast-2.amazonaws.com/platform-engineering-lab
+    tag: "8b161ba8d8018ce955ab12f00bbe5850cfb331ac"
     pullPolicy: IfNotPresent
   service:
     type: LoadBalancer
     port: 80
   resources: {}
-
 redis:
   replicaCount: 1
   image:
@@ -19,11 +18,9 @@ redis:
     type: ClusterIP
     port: 6379
   resources: {}
-
 config:
   logLevel: "debug"
   appEnv: "dev"
-
 secret:
   redisPassword: "cmVkaXMxMjM="
   apiKey: "bXlzZWNyZXRrZXkxMjM="
